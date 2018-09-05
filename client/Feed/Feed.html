@@ -1,18 +1,11 @@
 <template name="Feed">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6 col-md-offset-3">
         <h1>Feed</h1>
-        <form method="GET">
-          <div class="form-group">
-            <textarea name="texto" class="form-control" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary">Postar</button>
-          </div>
-        </form>
+        {{> NovoPost}}
         {{#each posts}}
-          <div>{{texto}}</div>
+        {{> Post}}
         {{/each}}
       </div>
     </div>
