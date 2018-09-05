@@ -1,0 +1,20 @@
+<template name="Feed">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Feed</h1>
+        <form method="GET">
+          <div class="form-group">
+            <textarea name="texto" class="form-control" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Postar</button>
+          </div>
+        </form>
+        {{#each posts}}
+          <div>{{texto}}</div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>
