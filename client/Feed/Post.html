@@ -1,8 +1,25 @@
 <template name="Post">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">{{users.author}}</h3>
+      <div class="row row-eq-height">
+        <div class="col-md-10">
+          <h3 class="panel-title"><a href="/perfil/{{user._id}}">{{user.username}}</a></h3>
+        </div>
+        <div class="col-md-2">
+          {{#if usuarioCurtiu}}
+            <button class="{{likeClasses}} botao-descurtir" style="color: #f12">{{puxarCurtidas}}</button>
+          {{else}}
+            <button class="{{likeClasses}} botao-curtir" style="color: #666;">{{puxarCurtidas}}</button>
+          {{/if}}
+        </div>
+      </div>
     </div>
-    <div class="panel-body">{{texto}}</div>
+    <div class="panel-body">
+      <h1>{{texto}}</h1>
+      {{#each puxarComentarios}}
+        {{> Comentario}}
+      {{/each}}
+      {{> NovoComentario}}
+    </div>
   </div>
 </template>
