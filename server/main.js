@@ -14,3 +14,23 @@ AccountsTemplates.configure({
     });
   }
 });
+
+Meteor.publish('posts', function(){
+  var user = Meteor.users.findOne({_id: Meteor.userId()});
+
+  var autores = user.profile.seguindo
+  autores.push(Meteor.userId())
+  return Posts.find({author: {$in: autores}});
+});
+
+Meteor.publish('usuarios', function(){
+  return Meteor.users.find({}, {fields: {
+    'username': true,
+    '_id': true,
+    'profile': true
+  }});
+});
+
+Meteor.publish('comentarios',function(idDoPost){
+  return Comentarios.find({id: idDoPost});
+})
