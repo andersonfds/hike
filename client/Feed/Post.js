@@ -14,7 +14,9 @@ Template.Post.helpers({
   'puxarComentarios': function() {
     return Comentarios.find({id: this._id}).fetch();
   },
-  'likeClasses': 'btn btn-default glyphicon glyphicon-heart pull-right'
+  'podeApagar': function() {
+    return this.author === Meteor.userId();
+  }
 });
 
 Template.Post.events({
@@ -23,5 +25,8 @@ Template.Post.events({
   },
   'click .botao-descurtir': function(evento, template) {
     Meteor.call('descurtirPost', template.data._id);
+  },
+  'click .botao-remover': function(evento, template) {
+    Meteor.call('removerPost',template.data._id);
   }
 });

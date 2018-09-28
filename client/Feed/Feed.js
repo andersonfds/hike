@@ -1,5 +1,5 @@
 Template.Feed.helpers({
   posts: function() {
-    return Posts.find().fetch();
+    return Posts.find().fetch().reverse();
   }
 });

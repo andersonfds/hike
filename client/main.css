@@ -1,4 +1,5 @@
 /* CSS declarations go here */
+
 .tt-query,
 .tt-hint {
   width: 396px;
@@ -56,4 +57,12 @@
 
 .tt-suggestion p {
   margin: 0;
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.fa {
+  font-size: 25px;
 }

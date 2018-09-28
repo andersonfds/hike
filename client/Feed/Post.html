@@ -1,21 +1,32 @@
 <template name="Post">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="row row-eq-height">
+      <div class="row">
         <div class="col-md-10">
           <h3 class="panel-title"><a href="/perfil/{{user._id}}">{{user.username}}</a></h3>
         </div>
         <div class="col-md-2">
-          {{#if usuarioCurtiu}}
-            <button class="{{likeClasses}} botao-descurtir" style="color: #f12">{{puxarCurtidas}}</button>
-          {{else}}
-            <button class="{{likeClasses}} botao-curtir" style="color: #666;">{{puxarCurtidas}}</button>
+          {{#if podeApagar}}
+          <i class="fa fa-trash pull-right botao-remover" role="button"></i>
           {{/if}}
         </div>
       </div>
     </div>
     <div class="panel-body">
-      <h1>{{texto}}</h1>
+      {{#if imagem}}
+      <p>{{texto}}</p>
+      <div class="row">
+        <img src="{{imagem}}" class="img-responsive" style="margin: 15px 0">
+      </div>
+      {{else}}
+        <h1>{{texto}}</h1>
+      {{/if}}
+      {{#if usuarioCurtiu}}
+        <i class="fa fa-heart botao-descurtir" role="button"></i>
+      {{else}}
+        <i class="fa fa-heart-o botao-curtir" role="button"></i>
+      {{/if}}
+      <div>{{puxarCurtidas}} curtidas</div>
       {{#each puxarComentarios}}
         {{> Comentario}}
       {{/each}}
